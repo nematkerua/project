@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
-import { Employee, EmployeeFormData, EMPLOYEE_ROLES } from '../../types/employee.types';
+import { Employee, EMPLOYEE_ROLES, EmployeeFormData } from '../../types/employee.types';
 import { formatDateForInput, parseInputDate } from '../../utils/date.utils';
 
 @Component({
@@ -14,7 +14,7 @@ import { formatDateForInput, parseInputDate } from '../../utils/date.utils';
     <div class="container mx-auto p-4">
       <div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
         <h2 class="text-2xl font-bold mb-6">
-          {{isEditing ? 'Edit' : 'Add'}} Employee
+          {{isEditing ? 'Edit' : 'Add'}} Employee Details
         </h2>
 
         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
@@ -22,17 +22,17 @@ import { formatDateForInput, parseInputDate } from '../../utils/date.utils';
             <label class="block text-gray-700 mb-2">Name</label>
             <input 
               type="text" 
-              formControlName="name"
+              formControlName="name" placeholder="Employee Name"
               class="w-full px-3 py-2 border rounded">
           </div>
 
           <div class="mb-4">
             <label class="block text-gray-700 mb-2">Role</label>
             <select 
-              formControlName="role"
+              formControlName="role" placeholder="Select Role"
               class="w-full px-3 py-2 border rounded">
-              <option value="">Select Role</option>
-              <option *ngFor="let role of roles" [value]="role">
+              <option value="" >Select Role</option>
+              <option  *ngFor="let role of roles" [value]="role">
                 {{role}}
               </option>
             </select>
@@ -41,7 +41,7 @@ import { formatDateForInput, parseInputDate } from '../../utils/date.utils';
           <div class="mb-4">
             <label class="block text-gray-700 mb-2">Start Date</label>
             <input 
-              type="date" 
+              type="date"  placeholder="Start Date"
               formControlName="startDate"
               class="w-full px-3 py-2 border rounded">
           </div>
@@ -50,7 +50,7 @@ import { formatDateForInput, parseInputDate } from '../../utils/date.utils';
             <label class="block text-gray-700 mb-2">End Date</label>
             <input 
               type="date" 
-              formControlName="endDate"
+              formControlName="endDate" placeholder="End Date"
               class="w-full px-3 py-2 border rounded">
           </div>
 
@@ -58,7 +58,7 @@ import { formatDateForInput, parseInputDate } from '../../utils/date.utils';
             <button 
               type="button"
               class="px-4 py-2 text-gray-600"
-              routerLink="/">
+              (click)="cancelButton()">
               Cancel
             </button>
             <button 
@@ -78,7 +78,6 @@ export class EmployeeFormComponent {
   private employeeService = inject(EmployeeService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-
   isEditing = false;
   employeeId?: number;
   roles = EMPLOYEE_ROLES;
@@ -133,5 +132,9 @@ export class EmployeeFormComponent {
 
       this.router.navigate(['/']);
     }
+  }
+
+  cancelButton(){
+    this.router.navigate(['/']);
   }
 }

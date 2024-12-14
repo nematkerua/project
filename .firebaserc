@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "employeeproject-46b01"
-  }
+    "default": "employeeproject-46b01",
+    "staging": "employeeproject-46b01"
+  },
+  "targets": {},
+  "etags": {}
 }

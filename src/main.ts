@@ -1,6 +1,6 @@
+import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, RouterModule } from '@angular/router';
-import { Component } from '@angular/core';
 import { routes } from './app/app.routes';
 
 @Component({
@@ -9,7 +9,7 @@ import { routes } from './app/app.routes';
     imports: [RouterModule],
   template: `
     <div class="min-h-screen bg-gray-100">
-      <header class="bg-white shadow mb-4">
+      <header class="bg-blue-500 shadow mb-4">
         <div class="container mx-auto px-4 py-6">
           <h1 class="text-2xl font-bold text-gray-900">
             Employee Management

@@ -1,5 +1,5 @@
-import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, computed, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeeCardComponent } from './employee-card.component';
