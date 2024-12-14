@@ -72,18 +72,7 @@ The final app is hosted on Firebase. You can access it here:
 
 ---
 
-## Screenshots  
 
-**Mobile View**:  
-(Screenshot or image here)  
-
-**Tablet View**:  
-(Screenshot or image here)  
-
-**Desktop View**:  
-(Screenshot or image here)  
-
----
 
 ## Folder Structure  
 
